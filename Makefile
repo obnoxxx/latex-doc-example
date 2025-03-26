@@ -17,6 +17,7 @@ info:
 
 .tex.pdf:
 	@pdflatex $<
+	@pdflatex $<
 	
 doc:pdf
 .PHONY: pdf

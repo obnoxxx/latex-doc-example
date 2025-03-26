@@ -11,7 +11,7 @@ GENERATED=$(patsubst doc.tex, , $(FILES))
 .PHONY: info
 
 info:
-	@echo $(GENERATED)
+	@echo generated files: $(GENERATED)
 
 
 

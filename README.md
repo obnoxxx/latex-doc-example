@@ -23,7 +23,7 @@ Example:
 
 ``console
 
-$ builbo -l latex -o ubuntu -0b -s "make doc"
+$ builbo -l latex -o ubuntu -b -s "make doc"
 
 ``
 

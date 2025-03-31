@@ -18,7 +18,7 @@ $ make doc
 ```
 
 People who do not want to install the LaTeX tools on their host can use the
-[buildbox](https://github.com/obnoxxx/buildbox/) project to render the slides in a container with a prebuilt container image.
+[buildbox](https://github.com/obnoxxx/buildbox/) project to render the document in a container with a prebuilt container image.
 Example:
 
 ``console

@@ -9,7 +9,7 @@ a Unix-like system like a Linux or MacOS  system with a tetex installation, but 
 
 For convenience, a Makefile is provided so that you don't need to memorize the exact latex commands.
 
-Here is howto render the example doc:
+Here is how to render the example doc:
 
 ```console
 

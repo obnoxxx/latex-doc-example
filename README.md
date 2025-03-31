@@ -17,6 +17,19 @@ $ make doc
 
 ```
 
+People who do not want to install the LaTeX tools on their host can use the
+[buildbox](https://github.com/obnoxxx/buildbox/) project to render the slides in a container with a prebuilt container image.
+Example:
+
+``console
+
+$ builbo -l latex -o ubuntu -0b -s "make doc"
+
+``
+
+this assumes that the `builbo` cli from the buildbox project is available in the host's `PATH`
+
+
 The rendered pdf doc can also opened directly  directly in the preferred viewer application like so:
 
 ```console

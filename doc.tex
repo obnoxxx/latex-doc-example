@@ -8,7 +8,7 @@
 \maketitle
 \begin{abstract}
 
-    This is a simple  example article to get started with  {\LaTeX}.
+    This is a simple  example article document to get started with  {\LaTeX}.
 
 \end{abstract}
 
@@ -18,25 +18,66 @@
 \addcontentsline{toc}{section}{Introduction}
 \section*{Introduction}
 
-\paragraph{} some introductory words.
+This is an example document written in {\LaTeX}, Leslie Lamport's typesetting
+sysyem.
 
-\paragraph{} more  intro words
+The main philosphy behind {\LaTeX}---in contrast to most word processors--- is to allow and encourage the author to
+focus on the content of the text rather than on the layout and formatting.
+
+writing documents in {\LaTeX} is a bit like programming: One writes a ``source code'' document with the content inplain text
+interspersed with some {\LaTeX} commands
+and then ``compiles'' or processes it with the processor commands \verb|latex| or \verb|dflatex| to produce
+putput files in formats like \textbf{PDF} or {TeX}' own device independent format \textbf{DVI}.
+
+
+some more introductory words.
+And this is already the end of the introduction.
+
 
 
 
 \section{Beginnings}
+\label{sec:beginnings}
 
-Some text here.
+This first section explains and demonstrates some concepts of {\LaTeX}.
+
+Paragraphs are automatically created from blocks of text separated by one or more
+blank lines.
 
 
-Writing math formulas are rather easy.
+\paragraph{} Some more text goes here in a new paragraph.
+Stil confused how the paragraph separation really works?
+New paragraphs can also be started explicitly with the \verb|\paragraph{}| command.
 
 
-\[ \sum_{i=1}^{n}i = \frac{n(n+1)}{2} \]
+
+\paragraph{} Section headers and other structure elements are automatically formatted and numered
+if one uses the corresponding commands like \verb|\section|, \verb|\chapter|, and
+so on.
+
+
+\paragraph{} As {\LaTeX} is based on Donald E. Knuth's {\TeX},
+Writing math formulae is rather easy. in the \verb|equation| environment.
+Here is an example:
+
+
+\begin{equation}
+\label{eq:example}
+\sum_{i=1}^{n}i = \frac{n(n+1)}{2}
+\end{equation}
 
 \section{Continuation}
 
-And what happens now?
+\paragraph{}One big strength of {\LaTeX} is the ability to automatically create a table of contents from the
+structure elements. Another is the ability to reference sections and other numerable elements like formulae
+and images in the text. Example: Section \textbf{Beginnings} has number \ref{sec:beginnings}.
+Equation \ref{eq:example} is the numbered example equation.
+
+
+
+
+
+and with this, our little example document already comes to an end.
 
 
 

@@ -4,29 +4,50 @@ SHELL=/bin/sh
 
 .SUFFIXES: .tex .pdf
 
-SOURCE="doc.tex"
-FILES=$(wildcard doc.*)
-GENERATED=$(patsubst doc.tex, , $(FILES))
+BASE=doc
+SOURCE=$(BASE).tex
+TARGET=$(BASE).pdf
+
+FILES_WC=$(wildcard $(BASE).*)
+FILES_LS=$(shell ls $(BASE).*)
+FILES=$(FILES_LS)
+
+GENERATED_S=$(subst $(SOURCE), ,$(FILES))
+GENERATED_FO=$(filter-out $(SOURCE),$(FILES))
+GENERATED=$(GENERATED_FO)
 
 .PHONY: info
 
 info:
-	@echo generated files: $(GENERATED)
+	@echo       source: $(SOURCE)
+	@echo       target: $(TARGET)
+	@echo all files wc: $(FILES_WC)
+	@echo all files ls: $(FILES_LS)
+	@echo    all files: $(FILES)
+	@echo  gen-files-s:  $(GENERATED_S)
+	@echo gen-files-fo: $(GENERATED_FO)
+	@echo    gen-files: $(GENERATED)
 
 
 
 .tex.pdf:
 	@pdflatex $<
+	@makeindex $<
 	@pdflatex $<
-	
-doc:pdf
-.PHONY: pdf
-pdf: clean doc.pdf
+#	@pdflatex $<
 
-show: doc
-	@$(VIEWER) doc.pdf
+.PHONY: $(BASE)
+	
+$BASE): pdf
+.PHONY: pdf
+pdf: clean $(TARGET)
+
+$(TARGET): $(SOURCE)
+
+show:  $(BASE)
+	@$(VIEWER) $(TARGET)
 
 .PHONY: clean
 clean:
-	rm -f $(GENERATED) 
+	rm -f $(GENERATED)
 

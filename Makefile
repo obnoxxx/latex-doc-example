@@ -32,6 +32,7 @@ info:
 
 .tex.pdf:
 	@pdflatex $<
+	@pdflatex $<
 	@makeindex $<
 	@pdflatex $<
 	@pdflatex $<

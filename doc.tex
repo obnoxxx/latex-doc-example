@@ -1,11 +1,17 @@
 \documentclass{article}
 \usepackage{amsmath}
 
-\title{example {\LaTeX} article}
+\title{example \LaTeX\ article}
 \author{obnox (Michael Adam)}
+\usepackage{makeidx}
+% generate an index file:
+\makeindex
+
 
 \begin{document}
+% generate the title
 \maketitle
+
 \begin{abstract}
 
     This is a simple  example article document to get started with  {\LaTeX}.
@@ -18,16 +24,16 @@
 \addcontentsline{toc}{section}{Introduction}
 \section*{Introduction}
 
-This is an example document written in {\LaTeX}, Leslie Lamport's typesetting
-sysyem.
+This is an example document written in {\LaTeX}, Leslie Lamport's\index{Lamport} typesetting
+sysyem which is based on Donald E. Knuth's\index{Knuth} {\TeX}.
 
-The main philosphy behind {\LaTeX}---in contrast to most word processors--- is to allow and encourage the author to
-focus on the content of the text rather than on the layout and formatting.
+The main philosphy behind {\LaTeX}---in contrast to most word processors\index{word processor} --- is to allow and encourage the author to
+focus on the content of the text rather than on the layout\index{layout}and formatting.
 
-writing documents in {\LaTeX} is a bit like programming: One writes a ``source code'' file with the content in plain text
-interspersed with some {\LaTeX} commands
+writing documents in {\LaTeX} is a bit like programming\index{programming}: One writes a ``source code''\index{source code}  file with the content in plain text
+interspersed with some {\LaTeX} commands\index{commands}
 and then ``compiles'' or processes it with the processorss \verb|latex| or \verb|dflatex| to produce
-putput files in formats like \textbf{PDF} or {TeX}' own device independent format \textbf{DVI}.
+putput files in formats like \textbf{PDF}\index{pdf} or {\TeX}' own device independent format \textbf{DVI}\index{dvi}.
 
 
 \paragraph{}some more introductory words.
@@ -56,9 +62,9 @@ if one uses the corresponding commands like \verb|\section|, \verb|\chapter|, an
 so on.
 
 
-\paragraph{} As {\LaTeX} is based on Donald E. Knuth's {\TeX},
-Writing math formulae is rather easy. in the \verb|equation| environment.
-Here is an example:
+\paragraph{} As {\LaTeX} is based on Donald E. Knuth's\index{Knuth} {\TeX},
+Writing math\index{math} formulae\index{formulae} is rather easy. in the \verb+equation+ environment.
+Here is an example:A
 
 
 \begin{equation}
@@ -72,7 +78,7 @@ by \verb|$| characters. for example $a^2 + b^2 = c^2$.
 \section{Continuation}
 
 \paragraph{}One big strength of {\LaTeX} is the ability to automatically create a table of contents from the
-structure elements. Another is the ability to reference sections and other numerable elements like formulae
+structure elements. Another is the ability to reference\index{reference}  sections and other numerable elements like formulae
 and images in the text. Example: Section \textbf{Beginnings} has number \ref{sec:beginnings}.
 Equation \ref{eq:example} is the numbered example equation.
 
@@ -84,6 +90,10 @@ and with this, our little example document already comes to an end.
 
 
 
+\section*{Index}
+\addcontentsline{toc}{section}{Index}
 
+% generate the index:
+\printindex
 
 \end{document}

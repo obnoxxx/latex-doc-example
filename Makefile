@@ -34,7 +34,7 @@ info:
 	@pdflatex $<
 	@makeindex $<
 	@pdflatex $<
-#	@pdflatex $<
+	@pdflatex $<
 
 .PHONY: $(BASE)
 	

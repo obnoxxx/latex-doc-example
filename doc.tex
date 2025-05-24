@@ -4,6 +4,9 @@
 \title{example \LaTeX\ article}
 \author{obnox (Michael Adam)}
 
+\usepackage{listings}
+\lstset{breaklines=true}
+%
 \usepackage{imakeidx}
 % generate an index file:
 \makeindex
@@ -82,6 +85,34 @@ by \verb|$| characters. for example $a^2 + b^2 = c^2$.
 structure elements. Another is the ability to reference\index{reference}  sections and other numerable elements like formulae
 and images in the text. Example: Section \textbf{Beginnings} has number \ref{sec:beginnings}.
 Equation \ref{eq:example} is the numbered example equation.
+
+
+\section{Indexes}
+
+Another extremely useful feature\index{feature} of  {\LaTeX} ---especially for longer documents like books\index{books}--- is the ability to automate\index{automate} the creation of indexes\index{indexes} of keywords.
+
+Using the package \verb+makeidx+ or \verb+imakeidx+ and placing the  command  \verb+\makeindex+ in the document''s preamble, on can use the command \verb+\index{keyword}+ in the text to add the keyword\index{keyword}  \texttt{keyword} to the index.
+
+\verb+\index+ can be used anywhere in the text but will typically be used near an  appearance of the keyword.
+
+When creating an index,  The comman \verb+makeindex+ has to be run between runs of \verb+latex+ an \verb+pdflatex+, respectively.
+
+I. E. with an input file named \verb+doc.tex+, a typical compile\index{compile} sequence could look like this:
+
+
+%%\begin{verbatim}
+
+\begin{lstlisting}
+ pdflatex doc
+ pdflatex doc
+ makeindex doc
+ pdflatex doc
+\end{lstlisting}
+%%\end {verbatim}
+
+
+
+
 
 
 

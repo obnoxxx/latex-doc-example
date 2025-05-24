@@ -4,7 +4,7 @@
 \title{example \LaTeX\ article}
 \author{obnox (Michael Adam)}
 
-\usepackage{makeidx}
+\usepackage{imakeidx}
 % generate an index file:
 \makeindex
 
@@ -90,10 +90,10 @@ and with this, our little example document already comes to an end.
 
 
 
-\section*{Index}
+%%\section*{Index}
+% load and print  the index:
+\printindex
 \addcontentsline{toc}{section}{Index}
 
-% generate the index:
-\printindex
 
 \end{document}

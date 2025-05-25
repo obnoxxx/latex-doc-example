@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{amsmath}
+\usepackage{hyperref}
 
 \title{example \LaTeX\ article}
 \author{obnox (Michael Adam)}
@@ -42,7 +43,7 @@ The main philosphy behind {\LaTeX}---in contrast to most word processors\index{w
 focus on the content of the text rather than on the layout\index{layout}and formatting.
 
 writing documents in {\LaTeX} is a bit like programming\index{programming}: One writes a ``source code''\index{source code}  file with the content in plain text
-interspersed with some {\LaTeX} commands\index{commands}
+interspersed with some {\LaTeX} commands\index{commands}, also called macros.\index{macros} .\footnote{{\LaTeX} is in fact a collection of {\TeX} macros.}\label{fn:macros}
 and then ``compiles'' or processes it with the processorss \verb|latex| or \verb|pdflatex| to produce
 putput files in formats like \textbf{PDF}\index{pdf} or {\TeX}' own device independent format \textbf{DVI}\index{dvi}.
 
@@ -92,10 +93,31 @@ by \verb|$| characters. for example $a^2 + b^2 = c^2$.
 
 \section{Continuation}
 
+This section covers a few more interesting aspects of {\LaTeX}.
+
+
+\subsection{Creating a table of contents}
 \paragraph{}One big strength of {\LaTeX} is the ability to automatically create a table of contents from the
-structure elements. Another is the ability to reference\index{reference}  sections and other numerable elements like formulae
+structure elements. The conmand \verb+\tableofcontents+ generates the contents using  information gathered from the structure elements likesection, subsection, chapter, etc.
+
+\paragraph{} In order to get the page references right, \verb+latex+ (or \verb+pdflatex+, respectively) has to be run at least twice on the input file.
+
+\paragraph{} contents entries can be added manually with the \verb+\addcontentsline+ command.
+This is useful to have unnumbered structure elements like \verb+\sextion*+ show up in the contents.
+
+\subsection{Labels And References}
+
+Another is the ability to reference\index{reference}  sections and other numerable elements like formulae
 and images in the text. Example: Section \textbf{Beginnings} has number \ref{sec:beginnings}.
 Equation \ref{eq:example} is the numbered example equation.
+
+\subsection{Footnotes}
+
+It is furthermore very easy to create professional looking  footnotes\footnote{example footnote} in \LaTeX\ with the \verb+\footnote+ command.\footnote{another footnote}
+ 
+
+
+
 
 
 \section{Indexes}

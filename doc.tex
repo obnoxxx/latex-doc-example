@@ -39,20 +39,23 @@ identifierstyle=\color{red}\itshape,  %
 This is an example document written in {\LaTeX}, Leslie Lamport's\index{Lamport, Leslie} typesetting
 sysyem which is based on Donald E. Knuth's\index{Knuth, Donald E.} {\TeX}.
 
+
 The main philosphy behind {\LaTeX}---in contrast to most word processors\index{word processor} --- is to allow and encourage the author to
 focus on the content of the text rather than on the layout\index{layout}and formatting.
+
 
 writing documents in {\LaTeX} is a bit like programming\index{programming}: One writes a ``source code''\index{source code}  file with the content in plain text
 interspersed with some {\LaTeX} commands\index{commands}, also called macros.\index{macros} .\footnote{{\LaTeX} is in fact a collection of {\TeX} macros.}\label{fn:macros}
 and then ``compiles'' or processes it with the processorss \verb|latex| or \verb|pdflatex| to produce
 putput files in formats like \textbf{PDF}\index{pdf} or {\TeX}' own device independent format \textbf{DVI}\index{dvi}.
 
-\paragraph{} It is not the purpose of this document to be a comprehensive guide but rather to serve as an example demonstating some of the capabilities of  {\LaTeX}.
+It is not the purpose of this document to be a comprehensive guide but rather to serve as an example demonstating some of the capabilities of  {\LaTeX}.
 
 
-\paragraph{} some more introductory words.
+some more introductory words.
 
-\paragraph{} And this is already the end of the introduction.
+
+And this is already the end of the introduction.
 
 
 
@@ -62,22 +65,38 @@ putput files in formats like \textbf{PDF}\index{pdf} or {\TeX}' own device indep
 
 This first section explains and demonstrates some concepts of {\LaTeX}.
 
-Paragraphs are automatically created from blocks of text separated by one or more
+\subsection{paragraphs}
+
+Paragraphs are automatically created from blocks of text separated by one or more (tradittionally two or more)
 blank lines.
 
 
-\paragraph{} Some more text goes here in a new paragraph.
-Still confused how the paragraph separation really works?
-New paragraphs can also be started explicitly with the \verb|\paragraph{}| command.
+Some more text goes here in a new paragraph.
+If starting a new paragraph by adding blank lines does not work (which can be the case for some versions of {\LaTeX}),  a new paragraph can also be started explicitly with the \verb|\paragraph{}| command.
+Alternatively, a paragraph can be ended with the \verb|\par| command.
+
+
+Paragraphs are automatically separated by a vertical space of height \verb|\parskip| and the first line of each paragraph is by default indented by \verb|\parindent|
 
 
 
-\paragraph{} Section headers and other structure elements are automatically formatted and numered
-if one uses the corresponding commands like \verb|\section|, \verb|\chapter|, and
-so on.
+\subsection{structuring elements}
+
+Section headers and other structure elements are automatically formatted and numbered
+if one uses the corresponding commands like \verb|\section|, \verb|\subsection|,  \verb|\chapter|, \verb|\part|, and
+more.
 
 
-\paragraph{} As {\LaTeX} is based on Donald E. Knuth's\index{Knuth} {\TeX},
+Of these, chaper and part are typically only used for longer documents like books while sections and subsections are the typical structure of articles.
+
+
+In addition, \verb|\paragraph| can also create numbered paragraphs with titles but this is rarely used and might be confusing for the overall structure of the document.
+
+
+
+\subsection{math formulae}
+
+ As {\LaTeX} is based on Donald E. Knuth's\index{Knuth} {\TeX},
 Writing math\index{math} formulae\index{formulae} is rather easy. in the \verb+equation+ environment.
 
 Here is an example:
@@ -88,8 +107,9 @@ Here is an example:
 \sum_{i=1}^{n}i = \frac{n(n+1)}{2}
 \end{equation}
 
-\paragraph{} Alternatively, formulae can be written inline, surrounded
-by \verb|$| characters. for example $a^2 + b^2 = c^2$.
+
+Note that the  previous equation is numered and can thus be referenced (see below). Alternatively, formulae can be written inline (without numbering), by surrounding them
+with \verb|$| characters. for example $a^2 + b^2 = c^2$.
 
 \section{Continuation}
 
@@ -97,23 +117,29 @@ This section covers a few more interesting aspects of {\LaTeX}.
 
 
 \subsection{Creating a table of contents}
-\paragraph{}One big strength of {\LaTeX} is the ability to automatically create a table of contents from the
+
+
+One big strength of {\LaTeX} is the ability to automatically create a table of contents from the
 structure elements. The conmand \verb+\tableofcontents+ generates the contents using  information gathered from the structure elements likesection, subsection, chapter, etc.
 
-\paragraph{} In order to get the page references right, \verb+latex+ (or \verb+pdflatex+, respectively) has to be run at least twice on the input file.
 
-\paragraph{} contents entries can be added manually with the \verb+\addcontentsline+ command.
-This is useful to have unnumbered structure elements like \verb+\sextion*+ show up in the contents.
+In order to get the page references right, \verb+latex+ (or \verb+pdflatex+, respectively) has to be run at least twice on the input file.
+
+
+If needed, contents entries can also  be added manually with the \verb+\addcontentsline+ command.
+This can be useful in order to have unnumbered structure elements like \verb+\section*+ show up in the contents.
 
 \subsection{Labels And References}
 
-Another is the ability to reference\index{reference}  sections and other numerable elements like formulae
-and images in the text. An item can be referenced with the \verb+\ref+ command if it has been given a labe\index{label} with the \verb+\label+ command.  Example: Section \textbf{Beginnings} has number \ref{sec:beginnings}.
+
+Another very convenient feature is the ability to reference\index{reference}  sections and other numerable elements like formulae
+and images in the text. An item can be referenced with the \verb+\ref+ command if it has been given a label\index{label} with the \verb+\label+ command.  Example: Section \textbf{Beginnings} has number \ref{sec:beginnings}.
 Equation \ref{eq:example} is the numbered example equation.
 
 \subsection{Footnotes}
 
-It is furthermore very easy to create professional looking  footnotes\index{footnote}\footnote{example footnote} in \LaTeX\ with the \verb+\footnote+ command.\footnote{another footnote}
+
+It is furthermore very easy to create professional looking numbered  footnotes\index{footnote}\footnote{example footnote} in \LaTeX\ with the \verb+\footnote+ command.\footnote{another footnote}
  
 
 
@@ -149,7 +175,7 @@ I. E. with an input file named \verb+doc.tex+, a typical compile\index{compile} 
 source code for various languages  can be conveniently listed an nicely highlighted with the \verb+lstlisting+ environment provided by the \verb+listings+ package.
 
 
- \paragraph{} As an example, here is the \verb+Makefile+ for this example document:
+ As an example, here is the \verb+Makefile+ for this example document:
 
 \lstset{language=[gnu] make}
 \begin{lstlisting}
@@ -215,7 +241,7 @@ clean:
 
 \section{Conclusion}
 
-and with this, our little example document already comes to an end.
+With this, our little example document already comes to an end.
 
 
 

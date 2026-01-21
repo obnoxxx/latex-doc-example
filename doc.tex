@@ -9,6 +9,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
+%%\usepackage{amsaddr}
 % 2. Math and standard AMS packages
 \usepackage{amsmath, amsfonts, amssymb, amsthm}
 %%\usepackage[hyper]{amsbib}
@@ -51,16 +52,27 @@ identifierstyle=\color{red}\itshape,  %
 
 % --- article metadata ( titlepage info) ---
 
-\title[short title]{example \LaTeX\ article}
-\author{Author Name}
+\title[example article]{example \LaTeX\ article}
+%\author{stname1]{Firstname1 Lastname1}
+% Source - https://tex.stackexchange.com/a/311688
+% Posted by Dai Bowen, modified by community. See post 'Timeline' for change history
+% Retrieved 2026-01-21, License - CC BY-SA 3.0
+
+\author[F1. LastName1]{FirstName1 LastName1$^1$}
+\address{Address1}
+\thanks{$^1$Address1, Email: \href{mailto:first1.last1@domain1}{first1.last1@domain1}}
+\author[F2. LastName2]{FirstName2 LastName2$^2$}
+\address{Address2}
+\thanks{$^2$Address2, Email: \href{mailto:first2.last2@domain2}{first2.last2@domain2}}
+
 %  Standard amsart: email and address print at the very end
 % \email{\href{mailto:mame@mail.domain}{mailto:name@mail.domain}}
 % Optional: Use \thanks if you want the email on page 1
-% %\thanks{Correspondence: email@example.com}
-% \thanks{Correspondence: \href{mailto:mame@mail.domain}{mailto:name@mail.domain}}
-\thanks{Correspondence: \href{mailto:mame@mail.domain}{mailto:name@mail.domain}}
-\address{The address}
-\date{\today}
+% %\thanks{Email: email@example.com}
+% \thanks{Email: \href{mailto:mame@mail.domain}{mailto:name@mail.domain}}
+%\thanks{Email: \href{mame@mail.domain}{mailto:name@mail.domain}}
+%\address{The address}
+%\date{\today}
 
 
 % --- document body ---
@@ -73,6 +85,9 @@ This is a simple  example article document to  help getting started with  {\LaTe
 \end{abstract}
 %% note: for amsart, abstact must be before maketitle
 \maketitle
+
+\pagestyle{headings}
+
 
 \cleardoublepage
 \phantomsection % This creates a precise anchor for the PDF link
@@ -298,7 +313,7 @@ With this, our little example document already comes to an end.
 
 
 
-\section*{References}
+%%\section*{References}
 
 %%\bibliography{doc}{}
 \bibliography{doc}{}

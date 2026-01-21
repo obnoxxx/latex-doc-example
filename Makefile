@@ -37,12 +37,12 @@ info:
 
 
 .tex.pdf:
-	@pdflatex $<
-	@pdflatex $<
-	@bibtex $<
-	@makeindex $<
-	@pdflatex $<
-	@pdflatex $<
+	@pdflatex $(basename $<)
+	@pdflatex $(basename $<)
+	@bibtex $(basename $<)
+	@makeindex $(basename $<)
+	@pdflatex $(basename $<)
+	@pdflatex $(basename $<)
 
 .PHONY: $(BASE)
 	

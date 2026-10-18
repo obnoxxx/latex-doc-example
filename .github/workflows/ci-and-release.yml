@@ -27,7 +27,7 @@ jobs:
 
       - name: Run checks
         run: |
-          builbo --lang latex --os suse --build-script "make pdf" --build
+          builbo --lang latex --os suse --deps texlive-titling --build-script "make pdf" --build
           make test
 
       - name: Upload PDF

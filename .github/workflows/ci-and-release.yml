@@ -1,0 +1,48 @@
+name: CI and release
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-go@v6
+        with:
+          go-version: stable
+
+      - name: Install Buildbox CLI
+        run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/TheBuildBox/install/HEAD/install.sh)"
+
+      - name: Run checks
+        run: |
+          builbo --lang latex --os suse --build-script "make pdf" --build
+          make test
+
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Install Buildbox CLI
+        run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/TheBuildBox/install/HEAD/install.sh)"
+
+      - name: Build PDF
+        run: builbo --lang latex --os suse --build-script "make pdf" --build
+
+      - name: Create release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" doc.pdf --title "$GITHUB_REF_NAME" --generate-notes

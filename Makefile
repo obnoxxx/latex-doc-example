@@ -158,3 +158,6 @@ lint: lint.make lint.workflows lint.markdown
 
 .PHONY: test 
 test: lint 
+
+.PHONY: check
+check: all test

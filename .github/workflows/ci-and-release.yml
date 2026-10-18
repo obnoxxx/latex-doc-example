@@ -41,6 +41,8 @@ jobs:
     needs: check
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v6
+
       - name: Download checked PDF
         uses: actions/download-artifact@v4
         with:

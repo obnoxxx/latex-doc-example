@@ -154,7 +154,7 @@ fix.markdown: $(MARKDOWNLINT_REQUIREMENTS)
 
 
 .PHONY: lint
-lint: lint.make lint.workf;ows lint.markdown
+lint: lint.make lint.workflows lint.markdown
 
 .PHONY: test 
 test: lint 
